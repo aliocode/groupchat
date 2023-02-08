@@ -18,7 +18,7 @@ deps:
 	go install google.golang.org/grpc/cmd/protoc-gen-go-grpc
 
 lint:
-	golangci-lint run --out-format progress --config golangci.yaml
+	golangci-lint run --config .golangci.yaml ./...
 
 run:
 	go run ./cmd/server/main.go

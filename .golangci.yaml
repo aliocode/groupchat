@@ -17,9 +17,7 @@ linters:
   # Enable specific linter
   # https://golangci-lint.run/usage/linters/#enabled-by-default
   enable:
-    - errcheck
-    - gosimple
-    - govet
-    - staticcheck
-    - typecheck
     - unused
+    - goconst
+    - gocyclo
+    - errcheck
