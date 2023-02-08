@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+package protobuf;
+option go_package = "groupchat/groupchatpb";
+
+service MessageService {
+  rpc Connect (ConnectRequest) returns (stream ConnectResponse);
+  rpc SendMessage (SendMessageRequest) returns (SendMessageResponse);
+
+  rpc CreateGroupChat (CreateGroupChatRequest) returns (CreateGroupChatResponse);
+  rpc ListChannels (ListChannelsRequest) returns (ListChannelsResponse);
+  rpc JoinGroupChat (JoinGroupChatRequest) returns (JoinGroupChatResponse);
+  rpc LeftGroupChat (LeftGroupChatRequest) returns (LeftGroupChatResponse);
+}
+
+message Group {
+  string group_id = 1;
+  repeated string usernames = 2;
+}
+
+message Message {
+  string sender_id = 1;
+  string receiver_id = 2;
+  string payload = 3;
+}
+
+message ConnectRequest {
+  string username = 1;
+}
+
+message ConnectResponse {
+  Message data = 1;
+}
+
+message JoinGroupChatRequest {
+  string chat_name = 1;
+  string username = 2;
+}
+
+message JoinGroupChatResponse {
+}
+
+message LeftGroupChatRequest {
+  string chat_name = 1;
+  string username = 2;
+}
+
+message LeftGroupChatResponse {
+}
+
+message CreateGroupChatRequest {
+  string chat_name = 1;
+  string username = 2;
+}
+
+message CreateGroupChatResponse {
+}
+
+message SendMessageRequest {
+  Message data = 1;
+}
+
+message SendMessageResponse {
+}
+
+message ListChannelsRequest {
+}
+
+message ListChannelsResponse {
+  repeated Group groups = 1;
+}
