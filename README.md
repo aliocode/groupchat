@@ -1,4 +1,6 @@
-<H1>Simple chatting service with groups.</H1>
+<H1>Simple chatting service.</H1>
+Chat service with grpc API and streaming.
+User-to-user and group chatting.
 
 Server and Client located under ./cmd
 
